@@ -77,3 +77,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         console.log("Form submitted for:", user); // Temporary log
     }
+
+    function calculateScore(selectedAnswers) {
+        let score = 0;
+        selectedAnswers.forEach((answer, index) => {
+            const correctAnswer = document.querySelector(
+                `input[name="answer${index}"][data-correct="true"]`
+            )?.value;
+            if (answer === correctAnswer) {
+                score += 1;
+            }
+        });
+        return score;
+    }
