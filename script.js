@@ -90,3 +90,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         return score;
     }
+
+    function saveScore(user, score) {
+        let scores = JSON.parse(localStorage.getItem("triviaScores")) || {};
+        if (!scores[user]) {
+            scores[user] = [];
+        }
+        scores[user].push(score);
+        localStorage.setItem("triviaScores", JSON.stringify(scores));
+    }
+    
+    function displayScores() {
+        let scores = JSON.parse(localStorage.getItem("triviaScores")) || {};
+        let scoreBoard = document.getElementById("score-table").getElementsByTagName('tbody')[0];
+        scoreBoard.innerHTML = "";
+        Object.keys(scores).forEach(user => {
+            let userScores = scores[user].join(", ");
+            let row = scoreBoard.insertRow();
+            row.insertCell(0).textContent = user;
+            row.insertCell(1).textContent = userScores;
+        });
+    }
