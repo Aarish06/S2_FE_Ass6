@@ -42,3 +42,19 @@ document.addEventListener("DOMContentLoaded", function () {
             questionContainer.appendChild(questionDiv);
         });
     }
+
+    function createAnswerOptions(correctAnswer, incorrectAnswers, questionIndex) {
+        const allAnswers = [correctAnswer, ...incorrectAnswers].sort(() => Math.random() - 0.5);
+        return allAnswers
+            .map(
+                (answer) => `
+            <label>
+                <input type="radio" name="answer${questionIndex}" value="${answer}" ${
+                    answer === correctAnswer ? 'data-correct="true"' : ""
+                }>
+                ${answer}
+            </label>
+        `
+            )
+            .join("");
+    }
