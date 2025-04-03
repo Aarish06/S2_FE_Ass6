@@ -33,3 +33,12 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("loading-container").classList = isLoading ? "" : "hidden";
         document.getElementById("question-container").classList = isLoading ? "hidden" : "";
     }
+
+    function displayQuestions(questions) {
+        questionContainer.innerHTML = "";
+        questions.forEach((question, index) => {
+            const questionDiv = document.createElement("div");
+            questionDiv.innerHTML = `<p>${question.question}</p>`;
+            questionContainer.appendChild(questionDiv);
+        });
+    }
