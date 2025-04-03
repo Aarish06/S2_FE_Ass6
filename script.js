@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("trivia-form");
+    const questionContainer = document.getElementById("question-container");
+    const newPlayerButton = document.getElementById("new-player");
+    const usernameInput = document.getElementById("username");
+    form.addEventListener("submit", handleFormSubmit);
+    newPlayerButton.addEventListener("click", startNewPlayer);
+});
+    
     // Initialize the game
     fetchQuestions();
     displayScores();
@@ -18,4 +27,9 @@
                 console.error("Error fetching questions:", error);
                 showLoading(false);
             });
+    }
+
+    function showLoading(isLoading) {
+        document.getElementById("loading-container").classList = isLoading ? "" : "hidden";
+        document.getElementById("question-container").classList = isLoading ? "hidden" : "";
     }
