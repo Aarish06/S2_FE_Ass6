@@ -67,3 +67,13 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch((error) => console.error("Error fetching questions:", error));
     }
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        let user = usernameInput.value.trim();
+        if (!user) {
+            alert("Please enter your name!");
+            return;
+        }
+        console.log("Form submitted for:", user); // Temporary log
+    }
