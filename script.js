@@ -28,3 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 showLoading(false);
             });
     }
+
+    function showLoading(isLoading) {
+        document.getElementById("loading-container").classList = isLoading ? "" : "hidden";
+        document.getElementById("question-container").classList = isLoading ? "hidden" : "";
+    }
