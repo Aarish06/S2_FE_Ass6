@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("trivia-form");
+    const questionContainer = document.getElementById("question-container");
+    const newPlayerButton = document.getElementById("new-player");
+    const usernameInput = document.getElementById("username");
+    form.addEventListener("submit", handleFormSubmit);
+    newPlayerButton.addEventListener("click", startNewPlayer);
+});
+    
     // Initialize the game
     fetchQuestions();
     displayScores();
