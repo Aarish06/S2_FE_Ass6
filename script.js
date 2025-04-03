@@ -58,3 +58,12 @@ document.addEventListener("DOMContentLoaded", function () {
             )
             .join("");
     }
+
+    function fetchQuestions() {
+        fetch("https://opentdb.com/api.php?amount=10&type=multiple")
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data.results); // Temporary log
+            })
+            .catch((error) => console.error("Error fetching questions:", error));
+    }
